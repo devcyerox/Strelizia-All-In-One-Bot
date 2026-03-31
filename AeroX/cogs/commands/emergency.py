@@ -103,8 +103,7 @@ class Emergency (commands .Cog ):
     @commands .max_concurrency (1 ,per =commands .BucketType .default ,wait =False )
     @commands .guild_only ()
     async def enable (self ,ctx ):
-        Strelizia =['767979794411028491','767979794411028491']
-        if ctx .author .id !=ctx .guild .owner_id and str (ctx .author .id )not in Strelizia :
+        if ctx .author .id !=ctx .guild .owner_id :
             embed =discord .Embed (description ="Only the server owner can enable emergency mode.",color =0x000000 )
             return await ctx .reply (embed =embed )
 
@@ -147,8 +146,7 @@ class Emergency (commands .Cog ):
     @commands .max_concurrency (1 ,per =commands .BucketType .default ,wait =False )
     @commands .guild_only ()
     async def disable (self ,ctx ):
-        Strelizia =['767979794411028491','767979794411028491']
-        if ctx .author .id !=ctx .guild .owner_id and str (ctx .author .id )not in Strelizia :
+        if ctx .author .id !=ctx .guild .owner_id :
             embed =discord .Embed (description ="Only the server owner can disable emergency mode.",color =0x000000 )
             return await ctx .reply (embed =embed )
 
@@ -358,10 +356,9 @@ class Emergency (commands .Cog ):
     @commands .guild_only ()
     @commands .bot_has_permissions (manage_roles =True )
     async def emergencysituation (self ,ctx ):
-        Strelizia =['767979794411028491','767979794411028491']
         guild_id =ctx .guild .id 
 
-        if not await self .is_guild_owner_or_authorised (ctx )and str (ctx .author .id )not in Strelizia :
+        if not await self .is_guild_owner_or_authorised (ctx ):
             return await ctx .reply (embed =discord .Embed (
             title ="<:icon_danger:1373170993236803688> Access Denied",
             description ="You are not authorised to execute the emergency situation.",
@@ -490,8 +487,7 @@ class Emergency (commands .Cog ):
     @commands .guild_only ()
     @commands .bot_has_permissions (manage_roles =True )
     async def emergencyrestore (self ,ctx ):
-        Strelizia =['767979794411028491','767979794411028491']
-        if ctx .author .id !=ctx .guild .owner_id and str (ctx .author .id )not in Strelizia :
+        if ctx .author .id !=ctx .guild .owner_id :
             return await ctx .reply (embed =discord .Embed (
             title ="<:icon_danger:1373170993236803688> Access Denied",
             description ="Only the server owner can execute the emergency restore command.",
