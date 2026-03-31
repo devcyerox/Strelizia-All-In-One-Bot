@@ -20,7 +20,7 @@ class BasicView (discord .ui .View ):
         self .ctx =ctx 
 
     async def interaction_check (self ,interaction :discord .Interaction ):
-        if interaction .user .id !=self .ctx .author .id and interaction .user .id not in [767979794411028491 ]:
+        if interaction .user .id !=self .ctx .author .id :
             await interaction .response .send_message ("Uh oh! That message doesn't belong to you.\nYou must run this command to interact with it.",ephemeral =True )
             return False 
         return True 
