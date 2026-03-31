@@ -663,7 +663,7 @@ class Owner (commands .Cog ):
 
             @discord .ui .button (label ="Stop",style =discord .ButtonStyle .danger )
             async def stop_button (self ,interaction :discord .Interaction ,button :discord .ui .Button ):
-                if interaction .user .id not in self .outer_self .bot_owner_ids :
+                if not interaction .user .guild_permissions .administrator :
                     await interaction .response .send_message ("Only the bot owner can stop this process.",ephemeral =True )
                     return 
                 self .outer_self .stop_tour =True 
