@@ -18,7 +18,6 @@ logger =logging .getLogger ('discord')
 class Ship (commands .Cog ):
     def __init__ (self ,bot ):
         self .bot =bot 
-        self .special_users =[1152073459443191859 ,]
 
     @commands .hybrid_command (pass_context =True ,help ="Ship two users together.")
     @blacklist_check ()
@@ -37,15 +36,6 @@ class Ship (commands .Cog ):
 
         author_id =float (user1 .id )
         user_id =float (user2 .id )
-
-        if user1 .id in self .special_users and user2 .id in self .special_users :
-            rate =100 
-        else :
-            now =datetime .datetime .now ()
-            day_seed =(now .day +now .month +now .year )/3 
-            seed =(author_id +user_id )/day_seed 
-            random .seed (seed )
-            rate =random .randint (1 ,99 )
 
         user_avatar =await get_avatar (user2 )
         author_avatar =await get_avatar (user1 )
