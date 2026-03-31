@@ -14,7 +14,6 @@ class Nightmode (commands .Cog ):
     def __init__ (self ,bot ):
         self .bot =bot 
         self .bot .loop .create_task (self .initialize_db ())
-        self .ricky =['767979794411028491',]
         self .color =0x000000 
 
     async def initialize_db (self ):
@@ -71,7 +70,7 @@ class Nightmode (commands .Cog ):
 
         own =ctx .author .id ==ctx .guild .owner_id 
         check =await self .is_extra_owner (ctx .author ,ctx .guild )
-        if not own and not check and ctx .author .id not in self .ricky :
+        if not own and not check :
             return await ctx .send (embed =discord .Embed (title ="<:icon_cross:1372375094336425986> Access Denied",
             color =self .color ,
             description ='Only Server Owner Or Extraowner Can Run This Command.!'
@@ -79,7 +78,7 @@ class Nightmode (commands .Cog ):
 
         if not own and not (
         ctx .guild .me .top_role .position <=ctx .author .top_role .position 
-        )and ctx .author .id not in self .ricky :
+        ):
             return await ctx .send (embed =discord .Embed (title ="<:icon_danger:1373170993236803688> Access Denied",
             color =self .color ,
             description ='Only Server Owner or Extraowner Having **Higher role than me can run this command**'
@@ -139,7 +138,7 @@ class Nightmode (commands .Cog ):
 
         own =ctx .author .id ==ctx .guild .owner_id 
         check =await self .is_extra_owner (ctx .author ,ctx .guild )
-        if not own and not check and ctx .author .id not in self .ricky :
+        if not own and not check :
             return await ctx .send (embed =discord .Embed (title ="<:icon_danger:1373170993236803688> Access Denied",
             color =self .color ,
             description ='Only Server Owner Or Extraowner Can Run This Command.!'
@@ -147,7 +146,7 @@ class Nightmode (commands .Cog ):
 
         if not own and not (
         ctx .guild .me .top_role .position <=ctx .author .top_role .position 
-        )and ctx .author .id not in self .ricky :
+        ):
             return await ctx .send (embed =discord .Embed (title ="<:icon_danger:1373170993236803688> Access Denied",
             color =self .color ,
             description ='Only Server Owner or Extraowner Having **Higher role than me can run this command**'
