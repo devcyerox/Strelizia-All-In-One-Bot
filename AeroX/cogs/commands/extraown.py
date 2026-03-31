@@ -36,8 +36,7 @@ class Extraowner (commands .Cog ):
             await ctx .send (embed =embed )
             return 
 
-        Strelizia =['767979794411028491','767979794411028491']
-        if ctx .author .id !=ctx .guild .owner_id and str (ctx .author .id )not in Strelizia :
+        if ctx .author .id !=ctx .guild .owner_id :
             embed =discord .Embed (title ="<:icon_cross:1372375094336425986> Access Denied",
             description ="Only Server Owner Can Run This Command",
             color =0x000000 
